@@ -1,0 +1,13 @@
+# Android
+*.iml
+.gradle/
+/build/
+/captures/
+.idea/
+
+# Firebase config
+/app/google-services.json
+
+# IDE
+*.log
+local.properties
