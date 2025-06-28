@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="il.ac.tcb.smartchef.ui.HomeFragment"
+        android:label="@string/nav_home" />
+
+    <fragment
+        android:id="@+id/addRecipeFragment"
+        android:name="il.ac.tcb.smartchef.ui.AddRecipeFragment"
+        android:label="@string/nav_add" />
+
+    <fragment
+        android:id="@+id/shoppingListFragment"
+        android:name="il.ac.tcb.smartchef.ui.ShoppingListFragment"
+        android:label="@string/nav_shopping" />
+
+    <!-- навигация между вкладками в BottomNavigationView -->
+</navigation>
