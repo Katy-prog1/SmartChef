@@ -5,20 +5,21 @@ import java.util.List;
 public class Recipe {
     private String id;
     private String title;
-    private List<String> ingredients;
+    private List<Ingredient> ingredients;
     private String instructions;
+    private boolean toCook;
 
-    // Пустой конструктор для Firestore
     public Recipe() {}
 
-    public Recipe(String id, String title, List<String> ingredients, String instructions) {
+    public Recipe(String id, String title, List<Ingredient> ingredients, String instructions, Boolean toCook) {
         this.id = id;
         this.title = title;
         this.ingredients = ingredients;
         this.instructions = instructions;
+        this.toCook = toCook;
     }
 
-    // Геттеры и сеттеры
+
     public String getId() {
         return id;
     }
@@ -35,11 +36,11 @@ public class Recipe {
         this.title = title;
     }
 
-    public List<String> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 

@@ -16,27 +16,26 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Инициализируем ViewBinding
+
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Получаем инстанс FirebaseAuth
         auth = FirebaseAuth.getInstance();
 
-        // Если пользователь уже залогинен — сразу в MainActivity
+        // if user already exist - MainActivity
         FirebaseUser currentUser = auth.getCurrentUser();
         if (currentUser != null) {
             goToMain();
             return;
         }
 
-        // Обработка нажатия кнопки «Log In»
+        // log in button
         binding.btnLogin.setOnClickListener(v -> {
             String email = binding.etEmail.getText().toString().trim();
             String pass  = binding.etPassword.getText().toString();
 
             if (email.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(this, "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please, fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -46,13 +45,13 @@ public class LoginActivity extends AppCompatActivity {
                             goToMain();
                         } else {
                             Toast.makeText(this,
-                                    "Ошибка входа: " + task.getException().getMessage(),
+                                    "Error : " + task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
                         }
                     });
         });
 
-        // Переход на экран регистрации
+        // move to the registration screen
         binding.tvRegister.setOnClickListener(v ->
                 startActivity(new Intent(this, RegisterActivity.class))
         );
@@ -66,6 +65,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        binding = null; // во избежание утечек, очищаем binding
+        binding = null;
     }
 }

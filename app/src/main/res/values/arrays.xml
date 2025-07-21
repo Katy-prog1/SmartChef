@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="converter_units">
+        <item>gr</item>
+        <item>kg</item>
+        <item>ml</item>
+        <item>l</item>
+        <item>tablespoon</item>
+        <item>teaspoon</item>
+        <item>cup (240ml)</item>
+        <item>pcs</item>
+    </string-array>
+
+</resources>

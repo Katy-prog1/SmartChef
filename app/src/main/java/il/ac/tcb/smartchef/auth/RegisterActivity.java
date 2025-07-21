@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.firebase.auth.FirebaseAuth;
 import il.ac.tcb.smartchef.MainActivity;
 import il.ac.tcb.smartchef.databinding.ActivityRegisterBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
     private ActivityRegisterBinding binding;
@@ -20,27 +21,51 @@ public class RegisterActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        // if you are already logged in - go straight to Main
+        FirebaseUser user = auth.getCurrentUser();
+        if (user != null) {
+            goToMain();
+            return;
+        }
+
         binding.btnRegister.setOnClickListener(v -> {
             String email = binding.etEmail.getText().toString().trim();
             String pass  = binding.etPassword.getText().toString();
+
             if (email.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(this, "Fill in all fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please, fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if (pass.length() < 6) {
+                Toast.makeText(this, "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // registration in Firebase
+            binding.btnRegister.setEnabled(false);
             auth.createUserWithEmailAndPassword(email, pass)
-                    .addOnCompleteListener(task -> {
+                    .addOnCompleteListener(this, task -> {
+                        binding.btnRegister.setEnabled(true);
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(this, MainActivity.class));
-                            finish();
+                            goToMain();
                         } else {
-                            String msg = task.getException() != null
-                                    ? task.getException().getMessage()
-                                    : "Unknown error";
-                            Toast.makeText(this, "registration error: " + msg,
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this,
+                                    "Registration error: " + task.getException().getMessage(),
+                                    Toast.LENGTH_LONG).show();
                         }
                     });
         });
+
+        // the link "Already have an account?" returns to login
+        binding.tvHaveAccount.setOnClickListener(v -> {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        });
+    }
+
+    private void goToMain() {
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
     @Override

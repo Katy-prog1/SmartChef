@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/recipesFragment"
+        android:icon="@drawable/recipe_svgrepo_com"
+        android:title="Recipes" />
 
     <item
-        android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_home"
-        android:title="@string/nav_home" />
-
-    <item
-        android:id="@+id/addRecipeFragment"
-        android:icon="@drawable/ic_add"
-        android:title="@string/nav_add" />
-
-    <item
-        android:id="@+id/shoppingListFragment"
+        android:id="@+id/shoppingFragment"
         android:icon="@drawable/ic_list"
-        android:title="@string/nav_shopping" />
+        android:title="Shopping" />
 
+    <item
+        android:id="@+id/converterFragment"
+        android:icon="@drawable/ic_converter"
+        android:title="Converter" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/user_svgrepo_com"
+        android:title="Profile" />
 </menu>

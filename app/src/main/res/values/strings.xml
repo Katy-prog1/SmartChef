@@ -17,14 +17,33 @@
     <string name="login_failed">"Login failed"</string>
     <string name="hello_blank_fragment">Shopping List</string>
 
-    <!-- Navigation -->
     <string name="nav_home">Recipes</string>
     <string name="nav_add">Add</string>
     <string name="nav_shopping">Shopping</string>
 
-    <!-- AddRecipeFragment -->
     <string name="recipe_title">Title</string>
     <string name="recipe_ingredients">Ingredients (comma-separated)</string>
     <string name="recipe_instructions">Instructions</string>
     <string name="btn_save">Save</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_ingredients">Ingredients (comma separated)</string>
+    <string name="hint_instructions">Instructions</string>
+
+    <string name="delete_item">Delete item</string>
+    <string name="hint_new_item">Enter item name</string>
+    <string name="hint_amount">Enter amount</string>
+    <string name="add_item">Add item</string>
+
+    <string name="logout">Logout</string>
+
+    <string name="profile">Profile</string>
+    <string name="profile_icon">Profile icon</string>
+
+    <string name="hint_search">Search items…</string>
+    <string name="hint_item">Enter amount</string>
+    <string name="btn_add">Add</string>
+    <string name="hint_enter_number">Enter number</string>
+    <string name="convert_arrow">Convert</string>
+    <string name="label_result">Result</string>
+    <string name="delete">-</string>
 </resources>

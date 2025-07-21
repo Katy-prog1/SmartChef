@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
 
 apply(plugin = "com.google.gms.google-services")
@@ -43,6 +44,8 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(libs.annotation)
     implementation(libs.activity)
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
 
     // Navigation Component
     val navVersion = "2.7.7"
@@ -54,13 +57,17 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
 
     // Firebase (Auth + Firestore)
-    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation(platform("com.google.firebase:firebase-bom:33.16.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
 
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.0")
 
+    implementation("com.google.android.material:material:1.9.0")
+
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
     // Test libraries
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

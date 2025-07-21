@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/homeFragment">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recipesFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="il.ac.tcb.smartchef.ui.HomeFragment"
-        android:label="@string/nav_home" />
+        android:id="@+id/recipesFragment"
+        android:name="il.ac.tcb.smartchef.ui.RecipesFragment"
+        android:label="Recipes" >
+        <action
+            android:id="@+id/action_recipesFragment_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDetailFragment"
+        android:name="il.ac.tcb.smartchef.ui.RecipeDetailFragment"
+        android:label="Recipe detail" >
+        <argument
+            android:name="recipeId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingFragment"
+        android:name="il.ac.tcb.smartchef.ui.ShoppingFragment"
+        android:label="Shopping" />
 
     <fragment
-        android:id="@+id/addRecipeFragment"
-        android:name="il.ac.tcb.smartchef.ui.AddRecipeFragment"
-        android:label="@string/nav_add" />
+        android:id="@+id/converterFragment"
+        android:name="il.ac.tcb.smartchef.ui.ConverterFragment"
+        android:label="Converter" />
 
     <fragment
-        android:id="@+id/shoppingListFragment"
-        android:name="il.ac.tcb.smartchef.ui.ShoppingListFragment"
-        android:label="@string/nav_shopping" />
+        android:id="@+id/profileFragment"
+        android:name="il.ac.tcb.smartchef.ui.ProfileFragment"
+        android:label="Profile" />
 
-    <!-- навигация между вкладками в BottomNavigationView -->
 </navigation>
